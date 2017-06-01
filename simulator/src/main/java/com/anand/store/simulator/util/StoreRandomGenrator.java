@@ -21,5 +21,11 @@ public class StoreRandomGenrator {
 		logger.trace("getNoItemsToShop "+x);
 		return x;
 	}
+	
+	public static int getNoCustomers() {
+		int x = rngen.nextInt(100);
+		logger.trace("getNoCustomers "+x);
+		return x;
+	}
 
 }

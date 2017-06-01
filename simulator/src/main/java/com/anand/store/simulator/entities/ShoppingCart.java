@@ -12,7 +12,7 @@ import com.anand.store.simulator.util.StoreRandomGenrator;
 public class ShoppingCart {
 
 	private List<Product> products;
-	private static final Logger logger = LogManager.getLogger(StoreRandomGenrator.class);
+	private static final Logger logger = LogManager.getLogger(ShoppingCart.class);
 	static int id;
 	
 	public ShoppingCart(){
