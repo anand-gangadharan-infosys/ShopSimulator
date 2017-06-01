@@ -13,7 +13,13 @@ public class StoreRandomGenrator {
 	public static Float getRandomPrice() {
 		Float x = rngen.nextFloat() * 100;
 		logger.trace("Price "+x);
-		return rngen.nextFloat() * 100;
+		return x;
+	}
+	
+	public static int getNoItemsToShop() {
+		int x = rngen.nextInt(10);
+		logger.trace("getNoItemsToShop "+x);
+		return x;
 	}
 
 }
