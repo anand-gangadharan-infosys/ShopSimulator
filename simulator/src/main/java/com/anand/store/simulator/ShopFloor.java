@@ -10,8 +10,13 @@ public class ShopFloor {
 	private BQueue<Customer> customerQueue = new BQueue<Customer>(Const.MAX_BILL_DESK_QUEUE_SIZE);
 	private static final Logger logger = LogManager.getLogger(ShopFloor.class);
 	
+	
 	public void joinBillingQueue(Customer aCustomer) throws InterruptedException{
-		logger.trace(aCustomer+" Joined Billing Queus");
+		if(customerQueue.isAllProducersExited()){
+			logger.warn("Shop closed. Turning away customer "+aCustomer);
+			return;
+		}
+		logger.trace(aCustomer+" Joined Billing Queue");
 		customerQueue.put(aCustomer);
 	}
 	
@@ -21,5 +26,13 @@ public class ShopFloor {
 	
 	public Customer nextCustomer() throws InterruptedException{
 		return customerQueue.get();
+	}
+	
+	public void shutShopForTheDay(){
+		customerQueue.allProducersExited();
+	}
+	
+	public boolean isShopClosed() {
+		return customerQueue.isAllProducersExited();
 	}
 }

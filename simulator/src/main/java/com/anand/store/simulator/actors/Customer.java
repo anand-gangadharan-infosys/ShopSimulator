@@ -24,11 +24,12 @@ public class Customer {
 	}
 
 	public void startShopping() {
-		logger.info("Customer"+this+" started shopping");
+		logger.info("Customer "+this+" started shopping");
 		if(cart == null){
 			logger.error(this +" Please pick up a cart ");
 		}
-		for (int i = 0; i < StoreRandomGenrator.getNoItemsToShop(); i++) {
+		int noOfItemsForMeToShop = StoreRandomGenrator.getNoItemsToShop();
+		for (int i = 0; i <  noOfItemsForMeToShop;i++) {
 			// Normally customers don't create product. But for simulation this
 			// is ok.
 			cart.addProduct(new GroceryProduct());

@@ -35,8 +35,12 @@ public class App {
 			ShopperGenerator shoperGenrator = new ShopperGenerator(customer, myBigShop);
 			shoppingExecutor.execute(shoperGenrator);
 		}
+		shoppingExecutor.shutdownNow();
 		while (!shoppingExecutor.isTerminated()) {
 		}
+		logger.info("All shoppers done shopping. Shop shut down.");
+		myBigShop.shutShopForTheDay();
+		
 		billingExecutor.shutdown();
 		while (!billingExecutor.isTerminated()) {
 		}
