@@ -10,7 +10,7 @@ import com.anand.store.simulator.util.StoreRandomGenrator;
 
 public class Customer {
 
-	private String name;
+	private String objIdentifier;
 	private Wallet myMallet = new Wallet();
 	private ShoppingCart cart;
 	private static final Logger logger = LogManager.getLogger(Customer.class);
@@ -18,6 +18,8 @@ public class Customer {
 	
 	public Customer(){
 		id++;
+		objIdentifier = Integer.toString(id);
+		logger.info("Customer created "+this);
 	}
 	public void pickUpShoppingCart(ShoppingCart aCart) {
 		this.cart = aCart;
@@ -34,7 +36,7 @@ public class Customer {
 			// is ok.
 			cart.addProduct(new GroceryProduct());
 		}
-		logger.info("Customer"+this+" started shopping");
+		logger.info("Customer"+this+" finished shopping");
 	}
 	
 	public ShoppingCart getCart(){
@@ -54,7 +56,7 @@ public class Customer {
 	@Override
 	public String toString() {
 		// TODO Auto-generated method stub
-		return "customer-"+id;
+		return "customer-"+objIdentifier;
 	}
 		
 }

@@ -30,7 +30,7 @@ public class ShoppingCart {
 	}
 	
 	public Float billItems(){
-		logger.info("Billing for cart "+this);
+		logger.debug("Billing for cart "+this);
 		Float totalBillAmount = 0f;
 		
 		for (Product product : products) {

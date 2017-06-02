@@ -10,6 +10,8 @@ public class BillingDesk implements Runnable {
 
 	private static final Logger logger = LogManager.getLogger(BillingDesk.class);
 
+	private String objIdentifier;
+	
 	private Cashier cashier;
 	private ShopFloor shopFloor;
 	static int id = 0;
@@ -17,6 +19,7 @@ public class BillingDesk implements Runnable {
 	public BillingDesk(ShopFloor theShop) {
 		this.shopFloor = theShop;
 		id++;
+		objIdentifier = Integer.toString(id);
 	}
 
 	public void manBillingDesk(Cashier cashier) {
@@ -26,7 +29,7 @@ public class BillingDesk implements Runnable {
 
 	@Override
 	public void run() {
-		logger.trace(this + " started functioning ...");
+		logger.info(this + " started taking customers");
 		while (!shopFloor.isShopClosed() || shopFloor.hasMore()) {
 			logger.trace("is Shop closed?" + shopFloor.isShopClosed() + " are people in queue " + shopFloor.hasMore());
 			try {
@@ -52,7 +55,7 @@ public class BillingDesk implements Runnable {
 	@Override
 	public String toString() {
 		// TODO Auto-generated method stub
-		return "BillDesk-" + id;
+		return "BillDesk-" + objIdentifier;
 	}
 
 }

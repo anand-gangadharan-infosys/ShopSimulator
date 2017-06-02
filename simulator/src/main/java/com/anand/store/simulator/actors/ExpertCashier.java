@@ -13,7 +13,7 @@ public class ExpertCashier extends Cashier {
 	@Override
 	public String toString() {
 		// TODO Auto-generated method stub
-		return "e-cashier "+id;
+		return "e-cashier "+objIdentifier;
 	}
 
 }
